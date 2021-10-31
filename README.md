@@ -5,16 +5,18 @@
 <hr>
 <br>
 
-## 간단 실행 방법 및 package.json scripts 정리
-#### Application 실행 및 빌드 명령어
+## 간단 실행 방법
+#### 실행 및 빌드 명령어
 
 <br>
 
-### [간단 실행 방법]
+### [Terminal]
 ```bash
 yarn install
-yarn start
+yarn start    # port: 4000
 ```
+
+<br>
 
 ### [webpack 기반 실행 및 빌드]
 ```json
