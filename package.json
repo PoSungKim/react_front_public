@@ -1,4 +1,5 @@
 {
+  "homepage": "https://posungkim.github.io",
   "name": "chatbot_react_front",
   "version": "1.0.0",
   "main": "index.tsx",
