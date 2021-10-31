@@ -5,10 +5,16 @@
 <hr>
 <br>
 
-## package.json scripts 정리
+## 간단 실행 방법 및 package.json scripts 정리
 #### Application 실행 및 빌드 명령어
 
 <br>
+
+### [간단 실행 방법]
+```bash
+yarn install
+yarn start
+```
 
 ### [webpack 기반 실행 및 빌드]
 ```json
@@ -19,7 +25,6 @@
 ```
 * `yarn start` : Webpack Dev-Server를 통해 Local PC에서 바로 실행 가능
 * `yarn build` : Webpack의 Bundler 기능을 통해 /build/ 디렉토리에 Build
-
 
 <br>
 
