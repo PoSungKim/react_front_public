@@ -118,6 +118,7 @@ module.exports = (env: envProps) => {
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src", "index.html"),
+        inject: false,
       }),
       new CleanWebpackPlugin(),
     ],

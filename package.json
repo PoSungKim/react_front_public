@@ -1,13 +1,16 @@
 {
-  "homepage": "https://posungkim.github.io",
+  "homepage": "https://posungkim.github.io/chatbot",
   "name": "chatbot_react_front",
   "version": "1.0.0",
   "main": "index.tsx",
   "license": "MIT",
   "dependencies": {
+    "@types/react-redux": "^7.1.20",
     "axios": "^0.24.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
