@@ -7,12 +7,12 @@ import {
 import { delay, put, takeEvery, takeLatest } from "@redux-saga/core/effects";
 
 function* increaseSaga() {
-  yield delay(500);
+  yield delay(0);
   yield put(increase());
 }
 
 function* decreaseSaga() {
-  yield delay(500);
+  yield delay(0);
   yield put(decrease());
 }
 

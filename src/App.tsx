@@ -1,12 +1,17 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import CounterContainer from "./containers/counter/CounterContainer";
+import "./api/hello";
+import { Route, Switch, Redirect } from "react-router";
 
-const App = () => {
+const App: React.FC = (): ReactElement => {
   return (
-    <div>
+    <>
       <h1>ChatBot Project</h1>
-      <CounterContainer />
-    </div>
+      <Switch>
+        <Route exact path="/" component={CounterContainer} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </>
   );
 };
 
