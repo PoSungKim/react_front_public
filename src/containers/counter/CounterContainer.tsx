@@ -1,7 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Counter from "../../components/counter/Counter";
-import { increase, decrease } from "../../modules/actions/CounterAction";
+import {
+  increaseAsync,
+  decreaseAsync,
+} from "../../modules/actions/CounterAction";
 import { RootReducerType } from "../../modules/reducers/RootReducer";
 
 const CounterContainer = () => {
@@ -9,11 +12,11 @@ const CounterContainer = () => {
   const dispatch = useDispatch();
 
   const onIncrease = () => {
-    dispatch(increase());
+    dispatch(increaseAsync());
   };
 
   const onDecrease = () => {
-    dispatch(decrease());
+    dispatch(decreaseAsync());
   };
 
   return (
