@@ -27,7 +27,7 @@ yarn start    # port: 4000
 ```json
 "scripts": {
     "start": "webpack serve --env mode=development",
-    "build": "webpack --env mode=production"
+    "build": "webpack       --env mode=production"
   }
 ```
 
