@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import CounterContainer from "./containers/counter/CounterContainer";
 import "./api/hello";
-import { Route, Switch, Redirect } from "react-router";
+import { Route, Switch } from "react-router";
 
 const App: React.FC = (): ReactElement => {
   return (
@@ -9,7 +9,8 @@ const App: React.FC = (): ReactElement => {
       <h1>ChatBot Project</h1>
       <Switch>
         <Route exact path="/" component={CounterContainer} />
-        <Redirect from="*" to="/" />
+        <Route exact path="/chatbot" component={CounterContainer} />
+        <Route component={CounterContainer} />
       </Switch>
     </>
   );

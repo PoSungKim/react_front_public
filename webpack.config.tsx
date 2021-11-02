@@ -103,7 +103,7 @@ module.exports = (env: envProps) => {
       hot: true, // Hot Module Replacement (HMR)로 개발 중 변경된 부분이 자동으로 업데이트되는 기능
       historyApiFallback: true, // history api를 사용하여 SPA 개발시 404가 발생하면 index.html으로 리다이렉트
       compress: true,
-      port: 4000,
+      port: 81,
       open: true,
     },
     plugins: [

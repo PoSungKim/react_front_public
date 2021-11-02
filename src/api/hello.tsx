@@ -1,16 +1,17 @@
 import axios from "axios";
 
-const URL = "https://localhost:8080/";
+// const URL = "http://localhost:8080";
+const URL = "https://chatbot-spring.herokuapp.com";
 
 export const getHello = async () => {
-  const response = await axios.get(URL + "value");
-  return response.data;
-};
-
-export const postHello = async (msg: string) => {
-  const response = await axios.put(URL + "value", msg);
+  const response = await axios.get(URL + "/hello/", {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(response.data);
   return response.data;
 };
 
 getHello();
-postHello("안녕 챗봇!");
