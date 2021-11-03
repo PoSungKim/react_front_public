@@ -4,6 +4,7 @@ import Counter from "../../components/counter/Counter";
 import {
   increaseAsync,
   decreaseAsync,
+  printCounterState,
 } from "../../modules/actions/CounterAction";
 import { RootReducerType } from "../../modules/reducers/RootReducer";
 
@@ -19,8 +20,19 @@ const CounterContainer = () => {
     dispatch(decreaseAsync());
   };
 
+  const onPrint = () => {
+    dispatch(printCounterState());
+  };
+
   return (
-    <Counter number={number} onIncrease={onIncrease} onDecrease={onDecrease} />
+    <>
+      <Counter
+        number={number}
+        onIncrease={onIncrease}
+        onDecrease={onDecrease}
+        onPrint={onPrint}
+      />
+    </>
   );
 };
 
