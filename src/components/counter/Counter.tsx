@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../../assets/scss/counter.scss";
 interface CounterProps {
   number: number;
   onIncrease: () => void;
@@ -9,11 +9,13 @@ interface CounterProps {
 
 const Counter: React.FC<CounterProps> = (props: CounterProps) => {
   return (
-    <div>
+    <div id="Counter">
       <h1>{props.number}</h1>
-      <button onClick={props.onIncrease}>+1</button>
-      <button onClick={props.onDecrease}>-1</button>
-      <button onClick={props.onPrint}>Current State</button>
+      <div>
+        <button onClick={props.onIncrease}>+1</button>
+        <button onClick={props.onDecrease}>-1</button>
+        <button onClick={props.onPrint}>Current State</button>
+      </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import createSagaMiddleware from "@redux-saga/core";
 import RootSaga from "./modules/sagas/RootSaga";
 import { createBrowserHistory } from "history";
 import { Router } from "react-router-dom";
+import "./assets/scss/index.scss";
 
 const customHistory = createBrowserHistory();
 const sagaMW = createSagaMiddleware({

@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Counter from "../../components/counter/Counter";
+import "../../assets/scss/counter.scss";
+
 import {
   increaseAsync,
   decreaseAsync,
@@ -25,14 +27,14 @@ const CounterContainer = () => {
   };
 
   return (
-    <>
+    <div id="CounterContainer">
       <Counter
         number={number}
         onIncrease={onIncrease}
         onDecrease={onDecrease}
         onPrint={onPrint}
       />
-    </>
+    </div>
   );
 };
 
