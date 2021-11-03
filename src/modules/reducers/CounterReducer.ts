@@ -1,4 +1,4 @@
-import { INCREASE, DECREASE } from "../actions/CounterAction";
+import { INCREASE, DECREASE, RESET } from "../actions/CounterAction";
 
 const initialState = 0;
 
@@ -11,6 +11,8 @@ export const CounterReducer = (
       return state + 1;
     case DECREASE:
       return state - 1;
+    case RESET:
+      return 0;
     default:
       return state;
   }

@@ -14,7 +14,7 @@ const Counter: React.FC<CounterProps> = (props: CounterProps) => {
       <div>
         <button onClick={props.onIncrease}>+1</button>
         <button onClick={props.onDecrease}>-1</button>
-        <button onClick={props.onPrint}>Current State</button>
+        <button onClick={props.onPrint}>Reset</button>
       </div>
     </div>
   );

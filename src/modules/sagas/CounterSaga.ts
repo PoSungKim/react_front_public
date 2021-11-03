@@ -4,6 +4,7 @@ import {
   DECREASE_ASYNC,
   INCREASE_ASYNC,
   PRINT_STATE,
+  reset,
 } from "../actions/CounterAction";
 import { delay, put, takeEvery, takeLatest } from "@redux-saga/core/effects";
 import { select } from "redux-saga/effects";
@@ -21,6 +22,7 @@ function* decreaseSaga() {
 function* printStateSaga(): Generator {
   const state = yield select((state) => state.CounterReducer);
   console.log(state);
+  yield put(reset());
 }
 
 export default function* counterSaga() {
