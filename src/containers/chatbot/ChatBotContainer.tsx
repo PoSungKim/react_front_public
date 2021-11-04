@@ -12,7 +12,7 @@ const ChatBotContainer = () => {
   return (
     <>
       <div id="ChatBotContainer">
-        <div id="ChatBotHeader"></div>
+        <header id="ChatBotHeader"></header>
         <div id="ChatBotContent" style={style}></div>
         <div id="ChatBotTextArea">
           <input

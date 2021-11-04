@@ -1,7 +1,7 @@
 #ChatBotContainer {
   background-color: white;
-  height: calc(100vmax - 0px);
-  width: 100vmin;
+  height: 100%;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -21,13 +21,16 @@
 
 #ChatBotTextArea {
   flex: 1;
+  position: relative;
+  background-color: rgb(38, 76, 179);
   #TextArea {
-    background-color: rgb(88, 121, 211);
+    background-color: rgb(38, 76, 179);
+    position: absolute;
     color: white;
     border: none;
-    font-size: 3vh;
     width: 100%;
     height: 100%;
+    font-size: 3vh;
     padding: 2vw;
     &:focus {
       outline-width: 0;
