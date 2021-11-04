@@ -1,15 +1,32 @@
-#ChatBotContainerTitle {
-  margin: 0px 0px 15px 0px;
-  padding: 0px;
-  color: white;
-  font-size: 40px;
-}
-
 #ChatBotContainer {
   background-color: white;
-  margin-top: 10px;
-  border-radius: 3%;
-  height: 87%;
-  width: 90%;
+  height: calc(100vmax - 0px);
+  width: 100vmin;
+
   display: flex;
+  flex-direction: column;
+}
+
+#ChatBotHeader {
+  flex: 1;
+  background-color: yellow;
+}
+
+#ChatBotContent {
+  flex: 9;
+  background-color: red;
+}
+
+#ChatBotTextArea {
+  flex: 1;
+  background-color: blue;
+  #TextArea {
+    font-size: 3vh;
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+    &:focus {
+      outline-width: 0;
+    }
+  }
 }

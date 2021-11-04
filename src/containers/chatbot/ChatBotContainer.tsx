@@ -1,12 +1,14 @@
 import React from "react";
-import CounterContainer from "../counter/CounterContainer";
 import "../../assets/scss/chatbot.scss";
 
 const ChatBotContainer = () => (
   <>
-    <h1 id="ChatBotContainerTitle">ChatBot Project</h1>
     <div id="ChatBotContainer">
-      <CounterContainer />
+      <div id="ChatBotHeader"></div>
+      <div id="ChatBotContent"></div>
+      <div id="ChatBotTextArea">
+        <input type="text" name="TextArea" id="TextArea" />
+      </div>
     </div>
   </>
 );
