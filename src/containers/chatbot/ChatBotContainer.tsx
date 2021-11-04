@@ -10,20 +10,18 @@ const ChatBotContainer = () => {
     backgroundRepeat: "no-repeat",
   };
   return (
-    <>
-      <div id="ChatBotContainer">
-        <header id="ChatBotHeader"></header>
-        <div id="ChatBotContent" style={style}></div>
-        <div id="ChatBotTextArea">
-          <input
-            type="text"
-            name="TextArea"
-            id="TextArea"
-            placeholder="Please Type Your Message"
-          />
-        </div>
-      </div>
-    </>
+    <div id="ChatBotContainer">
+      <header id="ChatBotHeader"></header>
+      <main id="ChatBotContent" style={style}></main>
+      <footer id="ChatBotTextArea">
+        <input
+          type="text"
+          name="TextArea"
+          id="TextArea"
+          placeholder="Please Type Your Message"
+        />
+      </footer>
+    </div>
   );
 };
 
