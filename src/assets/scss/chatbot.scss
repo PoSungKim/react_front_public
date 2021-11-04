@@ -9,24 +9,31 @@
 
 #ChatBotHeader {
   flex: 1;
-  background-color: yellow;
+  background-color: rgb(38, 76, 179);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #ChatBotContent {
   flex: 9;
-  background-color: red;
 }
 
 #ChatBotTextArea {
   flex: 1;
-  background-color: blue;
   #TextArea {
+    background-color: rgb(88, 121, 211);
+    color: white;
+    border: none;
     font-size: 3vh;
     width: 100%;
     height: 100%;
     padding: 2vw;
     &:focus {
       outline-width: 0;
+    }
+    &::placeholder {
+      color: white;
     }
   }
 }
