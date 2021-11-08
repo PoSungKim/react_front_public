@@ -23,13 +23,17 @@ const ChatBox = ({
           <AccountBoxIcon className="ChatBoxProfileImg" />
           <span className="ChatBoxProfileName">{userName}</span>
         </div>
-        <div className="ChatBoxContent">{content}</div>
+        <div className="ChatBoxContentContainer">
+          <span className="ChatBoxContent">{content}</span>
+        </div>
       </div>
     );
   else
     return (
       <div className="ChatBox right">
-        <div className="ChatBoxContent">{content}</div>
+        <div className="ChatBoxContentContainer">
+          <span className="ChatBoxContent">{content}</span>
+        </div>
         <div className="ChatBoxProfile">
           {userName === "SOL" ? (
             <img id="ChatBotImg" src={SOL} />
