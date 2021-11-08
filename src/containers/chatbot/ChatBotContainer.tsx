@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "../../assets/scss/chatbot.scss";
 import chatBotImg from "../../assets/images/ChatBot.png";
 import ChatBotTextArea from "../../components/chatbot/ChatBotTextArea";
@@ -6,21 +6,16 @@ import * as SockJS from "sockjs-client";
 import * as StompJS from "@stomp/stompjs";
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducerType } from "../../modules/reducers/RootReducer";
-import { NEWUSER } from "../../modules/actions/ChatBotAction";
 import ChatBox from "../../components/chatbot/ChatBox";
-import ChatIcon from "@material-ui/icons/Chat";
+import ChatBotHeader from "../../components/chatbot/ChatBotHeader";
+import { JOIN, SENDMSG } from "../../modules/actions/ChatBotAction";
+import { messageState } from "../../modules/reducers/ChatBotReducer";
 
 const style = {
   backgroundImage: `url(${chatBotImg})`,
   backgroundPosition: "center",
   backgroundSize: "contain",
   backgroundRepeat: "no-repeat",
-};
-
-type message = {
-  username: string;
-  content: string;
-  created_at: string;
 };
 
 const ChatBotContainer = () => {
@@ -34,13 +29,17 @@ const ChatBotContainer = () => {
 
   useEffect(() => {
     console.log("ChatBotContainer is open");
-    stompClient.connect({}, async () => {
-      await stompClient.send(
-        "/chatbot.newUser",
+
+    const TextArea = document.querySelector<HTMLInputElement>("#TextArea");
+    TextArea?.focus();
+
+    stompClient.connect({}, () => {
+      stompClient.subscribe("/chatroom/public", onSubscriptionHandler);
+      stompClient.send(
+        "/chatbot.join",
         { priority: 10 },
-        JSON.stringify({ message: "Hello ChatBot!" })
+        JSON.stringify({ content: "Hello ChatBot!" })
       );
-      await stompClient.subscribe("/topic/public", onSubscriptionHandler);
     });
 
     return () => {
@@ -56,10 +55,14 @@ const ChatBotContainer = () => {
   const dispatch = useDispatch();
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    if (msgInput === "") {
+      e.preventDefault();
+      return;
+    }
     stompClient.send(
       "/chatbot.sendMessage",
       {},
-      JSON.stringify({ message: msgInput })
+      JSON.stringify({ userName: curMsgState.myUserName, content: msgInput })
     );
     setMsgInput("");
     e.preventDefault();
@@ -73,27 +76,28 @@ const ChatBotContainer = () => {
   const onSubscriptionHandler = (event: { body: string }) => {
     console.log(event.body);
     const msg: string = event.body;
-    dispatch({ type: NEWUSER, payload: JSON.parse(msg) });
-    console.log(JSON.parse(msg));
+    if (event.body.includes("손님! 환영합니다!"))
+      dispatch({ type: JOIN, payload: JSON.parse(msg) });
+    else dispatch({ type: SENDMSG, payload: JSON.parse(msg) });
+    console.log("onSubscriptionHandler is called!");
   };
 
-  const asyncMsgContent: {
-    stompClient: any;
-    messageList: [{ message: string }];
-  } = useSelector((state: RootReducerType) => state.ChatBotReducer);
+  const curMsgState: messageState = useSelector(
+    (state: RootReducerType) => state.ChatBotReducer
+  );
 
   let keyNum = 1;
   return (
     <div id="ChatBotContainer">
-      <header id="ChatBotHeader">
-        <ChatIcon id="ChatBotHeaderIcon" />
-        <span id="ChatBotHeaderInfoMsg">무엇을 도와드릴까요 ?</span>
-      </header>
-      <main id="ChatBotContent" style={style}>
-        {asyncMsgContent.messageList.map((e) => {
-          if (e.message === "") return;
+      <ChatBotHeader />
+      <main id="ChatBotMain" style={style}>
+        {curMsgState.messageList.map((e) => {
           keyNum++;
-          return <ChatBox key={keyNum} message={e.message} />;
+          if (e.userName === curMsgState.myUserName) {
+            return <ChatBox key={keyNum} {...{ ...e, type: "L" }} />;
+          } else {
+            return <ChatBox key={keyNum} {...{ ...e, type: "R" }} />;
+          }
         })}
       </main>
       <ChatBotTextArea

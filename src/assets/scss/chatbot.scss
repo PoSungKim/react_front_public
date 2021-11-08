@@ -26,18 +26,47 @@
   color: white;
 }
 
-#ChatBotContent {
+#ChatBotMain {
   flex: 9;
   overflow: scroll;
+  padding: 0 4vw;
 }
 
 .ChatBox {
-  background-color: rgb(174 175 185);
-  margin: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  position: relative;
-  display: table;
+  align-items: center;
+  display: flex;
+  margin: 5vh 0;
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  & .ChatBoxProfile {
+    display: flex;
+    position: relative;
+    justify-content: center;
+  }
+
+  & .ChatBoxProfileName {
+    position: absolute;
+    top: 6vh;
+  }
+  & svg.ChatBoxProfileImg {
+    font-size: 6vh;
+  }
+
+  & #ChatBotImg {
+    margin-left: 0.5vw;
+    height: 10vh;
+  }
+
+  & .ChatBoxContent {
+    background-color: rgba(174, 175, 185, 0.7);
+    border-radius: 10px;
+    max-width: 60vw;
+    padding: 10px;
+    display: table;
+  }
 }
 
 form#ChatBotTextArea {
@@ -49,7 +78,7 @@ form#ChatBotTextArea {
   & #TextArea {
     background-color: rgb(38, 76, 179);
     // position: absolute;
-    font-size: 100%;
+    font-size: 4vmin;
     padding: 0 4vw;
     color: white;
     border: none;

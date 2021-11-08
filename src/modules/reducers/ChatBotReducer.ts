@@ -1,20 +1,36 @@
-import { NEWUSER, SETSTOMP } from "../actions/ChatBotAction";
+import { JOIN, SENDMSG } from "../actions/ChatBotAction";
 
-const initialMessage: {
-  stompClient: any;
-  messageList: [{ message: string }];
-} = { stompClient: null, messageList: [{ message: "" }] };
+export type message = { userName: string; content: string };
+
+export type messageState = {
+  myUserName: string;
+  messageList: message[];
+};
+
+const initialMessage: messageState = { myUserName: "", messageList: [] };
 
 export const ChatBotReducer = (
   state = initialMessage,
-  action: { type: string; payload: { message: string } }
+  action: { type: string; payload: message }
 ) => {
   console.log("ChatBotReducer >> ", action);
   switch (action.type) {
-    case SETSTOMP:
-      return { ...state, stompClient: action.payload };
-    case NEWUSER:
-      return { ...state, messageList: [...state.messageList, action.payload] };
+    case JOIN:
+      return {
+        ...state,
+        myUserName: state.myUserName
+          ? state.myUserName
+          : action.payload.userName,
+        messageList: [
+          ...state.messageList,
+          { userName: "SOL", content: action.payload.content },
+        ],
+      };
+    case SENDMSG:
+      return {
+        ...state,
+        messageList: [...state.messageList, action.payload],
+      };
     default:
       return state;
   }

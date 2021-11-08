@@ -18,6 +18,7 @@ const ChatBotTextArea = (props: Props) => {
   return (
     <form id="ChatBotTextArea" onSubmit={(e) => props.onSubmitHandler(e)}>
       <input
+        autoComplete="off"
         type="text"
         name="TextArea"
         id="TextArea"
