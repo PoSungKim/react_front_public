@@ -1,11 +1,11 @@
 import React from "react";
 import "../../assets/scss/counter.scss";
-interface CounterProps {
+type CounterProps = {
   number: number;
   onIncrease: () => void;
   onDecrease: () => void;
   onPrint: () => void;
-}
+};
 
 const Counter: React.FC<CounterProps> = (props: CounterProps) => {
   return (
