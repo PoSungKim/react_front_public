@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 type Props = {
   textInput: string;
@@ -7,20 +7,11 @@ type Props = {
 };
 
 const ChatBotTextArea = (props: Props) => {
-  useEffect(() => {
-    console.log("ChatBotTextArea is open");
-
-    return () => {
-      console.log("ChatBotTextArea is close");
-    };
-  });
-
   return (
     <form id="ChatBotTextArea" onSubmit={(e) => props.onSubmitHandler(e)}>
       <input
         autoComplete="off"
         type="text"
-        name="TextArea"
         id="TextArea"
         placeholder="Please Type Your Message"
         value={props.textInput}
@@ -31,4 +22,4 @@ const ChatBotTextArea = (props: Props) => {
   );
 };
 
-export default ChatBotTextArea;
+export default React.memo(ChatBotTextArea);

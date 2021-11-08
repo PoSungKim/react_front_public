@@ -28,8 +28,6 @@ const ChatBotContainer = () => {
   const stompClient = useMemo(() => StompJS.Stomp.over(sockJS), [sockJS]);
 
   useEffect(() => {
-    console.log("ChatBotContainer is open");
-
     const TextArea = document.querySelector<HTMLInputElement>("#TextArea");
     TextArea?.focus();
 
@@ -43,7 +41,6 @@ const ChatBotContainer = () => {
     });
 
     return () => {
-      console.log("ChatBotContainer is close");
       stompClient.disconnect();
     };
   }, [stompClient]);
@@ -74,12 +71,13 @@ const ChatBotContainer = () => {
   };
 
   const onSubscriptionHandler = (event: { body: string }) => {
-    console.log(event.body);
-    const msg: string = event.body;
-    if (event.body.includes("손님! 환영합니다!"))
-      dispatch({ type: JOIN, payload: JSON.parse(msg) });
-    else dispatch({ type: SENDMSG, payload: JSON.parse(msg) });
-    console.log("onSubscriptionHandler is called!");
+    const msg: { content: string; userName: string; "meta-info": string } =
+      JSON.parse(event.body);
+    console.log(msg);
+    dispatch({
+      type: msg["meta-info"] === "ChatBot" ? JOIN : SENDMSG,
+      payload: { content: msg.content, userName: msg.userName },
+    });
   };
 
   const curMsgState: messageState = useSelector(
