@@ -13,7 +13,6 @@ export const ChatBotReducer = (
   state = initialMessage,
   action: { type: string; payload: message }
 ) => {
-  console.log("ChatBotReducer >> ", action);
   switch (action.type) {
     case JOIN:
       return {
