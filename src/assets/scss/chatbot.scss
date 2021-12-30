@@ -58,14 +58,13 @@
   }
 
   & .ChatBoxContentContainer {
-    display: table;
     flex: 8 8;
 
     & .ChatBoxContent {
       background-color: rgba(174, 175, 185, 0.7);
+      display: inline-flex;
       border-radius: 10px;
       padding: 10px;
-      display: inline-flex;
     }
   }
 
@@ -74,6 +73,10 @@
 
     & .ChatBoxContentContainer {
       text-align: right;
+
+      & .ChatBoxContent {
+        text-align: left;
+      }
     }
   }
 }

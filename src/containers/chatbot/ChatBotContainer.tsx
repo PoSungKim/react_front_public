@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "../../assets/scss/chatbot.scss";
 import chatBotImg from "../../assets/images/ChatBot.png";
-import ChatBotTextArea from "../../components/chatbot/ChatBotTextArea";
+import ChatBotTextArea from "../../components/chatbot/ChatbotTextArea";
 import * as SockJS from "sockjs-client";
 import * as StompJS from "@stomp/stompjs";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,11 +21,8 @@ const style = {
 const ChatBotContainer = () => {
   const sockJS = useMemo(
     // () => new SockJS("http://localhost:8080/websocketConnection"),
-    // () => new SockJS("https://chatbot-spring.herokuapp.com:8080/websocketConnection"),
-    () =>
-      new SockJS(
-        "http:/ec2-54-180-100-104.ap-northeast-2.compute.amazonaws.com:8080/websocketConnection"
-      ),
+    () => new SockJS("https://chatbot-spring.herokuapp.com/websocketConnection"),
+    //() => new SockJS("http:/ec2-54-180-100-104.ap-northeast-2.compute.amazonaws.com:8080/websocketConnection"),
     []
   );
   const stompClient = useMemo(() => StompJS.Stomp.over(sockJS), [sockJS]);
@@ -46,7 +43,7 @@ const ChatBotContainer = () => {
     return () => {
       stompClient.disconnect();
     };
-  }, [stompClient]);
+  }, []);
 
   const [msgInput, setMsgInput]: [
     string,
