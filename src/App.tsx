@@ -22,9 +22,9 @@ const App: React.FC = () : ReactElement => {
             <span>Category</span> 
             <hr/>
             <ul>
-              <li><Link to="/"> Home </Link></li>
-              <li><Link to="/game"> Welsh Corgi </Link></li>
-              <li><Link to="/chatbot"> Chatbot </Link></li>
+              <li><Link to="/posungkim.github.io.code/"> Home </Link></li>
+              <li><Link to="/posungkim.github.io.code/game"> Welsh Corgi </Link></li>
+              <li><Link to="/posungkim.github.io.code/chatbot"> Chatbot </Link></li>
               <li>3</li>
               <li>4</li>
               <li>5</li>
@@ -33,9 +33,9 @@ const App: React.FC = () : ReactElement => {
         </section>
         <section id="rightSection">
             <Routes>
-              <Route path="/"           element={<HomePage/>}     />
-              <Route path="/game/*"     element={<GamePage />}    />
-              <Route path="/chatbot/*"  element={<ChatBotPage/>}  />
+              <Route path="/posungkim.github.io.code/"           element={<HomePage/>}     />
+              <Route path="/posungkim.github.io.code/game/*"     element={<GamePage />}    />
+              <Route path="/posungkim.github.io.code/chatbot/*"  element={<ChatBotPage/>}  />
               <Route path="*"           element={<HomePage />}    />
             </Routes>
         </section>
