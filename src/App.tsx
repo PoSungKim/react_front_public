@@ -36,7 +36,7 @@ const App: React.FC = () : ReactElement => {
               <Route path="/"           element={<HomePage/>}     />
               <Route path="/game/*"     element={<GamePage />}    />
               <Route path="/chatbot/*"  element={<ChatBotPage/>}  />
-              <Route path="/*"          element={<HomePage />}    />
+              <Route path="*"           element={<HomePage />}    />
             </Routes>
         </section>
       </section>
