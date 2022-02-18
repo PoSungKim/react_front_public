@@ -25,9 +25,6 @@ const App: React.FC = () : ReactElement => {
               <li><Link to="/"> Home </Link></li>
               <li><Link to="/game"> Welsh Corgi </Link></li>
               <li><Link to="/chatbot"> Chatbot </Link></li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>    
             </ul>
           </div>
         </section>
