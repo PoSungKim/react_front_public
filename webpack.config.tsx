@@ -120,8 +120,10 @@ module.exports = (env: envProps) => {
       }),
       new ForkTsCheckerWebpackPlugin({
         async: false,
-        eslint: {
-          files: ["./src/*.tsx", "./src/**/*.tsx"],
+        typescript: {
+          eslint: {
+            files: ["./src/*.tsx", "./src/**/*.tsx"],
+          }
         },
       }),
       new HtmlWebpackPlugin({

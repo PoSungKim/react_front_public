@@ -7,7 +7,7 @@ import RootReducer from "./modules/reducers/RootReducer";
 import createSagaMiddleware from "@redux-saga/core";
 import RootSaga from "./modules/sagas/RootSaga";
 import { createBrowserHistory } from "history";
-import { Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./assets/scss/index.scss";
 
 const customHistory = createBrowserHistory();
@@ -21,10 +21,10 @@ const store = createStore(RootReducer, applyMiddleware(sagaMW));
 sagaMW.run(RootSaga);
 
 ReactDom.render(
-  <Router history={customHistory}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+        <App />
+    </Router>  
+  </Provider>,
   document.querySelector("#root")
 );

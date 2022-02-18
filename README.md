@@ -1,5 +1,5 @@
 # Github Page
-> https://posungkim.github.io/chatbot
+> https://posungkim.github.io
 
 > SPA의 각 페이지 별 기능 구현
 
