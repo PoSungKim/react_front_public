@@ -33,6 +33,10 @@ const ChatBotContainer = () => {
 
     stompClient.connect({}, () => {
       stompClient.subscribe("/chatroom/public", onSubscriptionHandler);
+      
+      // 다른 페이지로 이동했다가 다시 /chatbot 페이지로 복귀했을 때
+      // 다시 join할 필요가 없음
+      if (curMsgState.myUserName !== "") return;
       stompClient.send(
         "/chatbot.join",
         { priority: 10 },
@@ -73,6 +77,9 @@ const ChatBotContainer = () => {
   const onSubscriptionHandler = (event: { body: string }) => {
     const msg: { content: string; userName: string; "meta-info": string } =
       JSON.parse(event.body);
+    console.log(event.body);
+    console.log(JSON.parse(event.body));
+
     dispatch({
       type: msg["meta-info"] === "ChatBot" ? JOIN : SENDMSG,
       payload: { content: msg.content, userName: msg.userName },

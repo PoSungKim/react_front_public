@@ -16,6 +16,7 @@ module.exports = (env: envProps) => {
     entry: "./src/index.tsx",
     output: {
       path: path.resolve(__dirname, "build"), // where to bundle bundle.js
+      publicPath: "/",
       filename: "bundle.js",
     },
     resolve: {
@@ -81,10 +82,10 @@ module.exports = (env: envProps) => {
                   return "[contenthash].[ext]";
                 },
                 // 외부로 보일 img 테그에서 src 참조 디렉토리,
-                // 사용한다면, Apache 서버에서 돌아가는 것을 염두하여 작성해야 함 --> 따라서 outpath와 동일하게 작성 필요
-                publicPath: "media",
+                // 사용한다면, Apache 서버에서 돌아가는 것을 염두하여 작성해야 함 --> 따라서 outputpath와 동일하게 작성 필요
+                publicPath: "/media",
                 // build 폴더 내에서 이미지 파일들이 생성될 디렉토리
-                outputPath: "media",
+                outputPath: "/media",
               },
             },
           ],
@@ -104,9 +105,9 @@ module.exports = (env: envProps) => {
       ],
     },
     devServer: {
-      // devMiddleware: {
-      //   publicPath: "/src/", // where to set the root directory, 하지만 실제로 해당 폴더에 output files를 만드는 것은 아니고, it keeps bundle files in memory and serves them as if they were real files mounted at the server's root path한다.
-      // },
+      devMiddleware: {
+        publicPath: "/", // where to set the root directory, 하지만 실제로 해당 폴더에 output files를 만드는 것은 아니고, it keeps bundle files in memory and serves them as if they were real files mounted at the server's root path한다.
+      },
       static: path.resolve(__dirname, "build"), // webpack에서 제공하는 static files가 아닌 static files를 찾는 경로
       hot: true, // Hot Module Replacement (HMR)로 개발 중 변경된 부분이 자동으로 업데이트되는 기능
       historyApiFallback: true, // history api를 사용하여 SPA 개발시 404가 발생하면 index.html으로 리다이렉트
