@@ -24,7 +24,7 @@ const App: React.FC = () : ReactElement => {
             <ul>
               <li><Link to="/"> Home </Link></li>
               <li><Link to="/posungkim.github.io/game"> Welsh Corgi </Link></li>
-              <li><Link to="/posungkim.github.io/chatbot"> Chatbot </Link></li>
+              <li><Link to="/chatbot"> Chatbot </Link></li>
             </ul>
           </div>
         </section>
@@ -32,7 +32,7 @@ const App: React.FC = () : ReactElement => {
             <Routes>
               <Route path="/posungkim.github.io"           element={<HomePage/>}     />
               <Route path="/posungkim.github.io/game"      element={<GamePage />}    />
-              <Route path="/posungkim.github.io/chatbot"   element={<ChatBotPage/>}  />
+              <Route path="/chatbot"   element={<ChatBotPage/>}  />
               <Route path="*"                              element={<HomePage />}    />
             </Routes>
         </section>

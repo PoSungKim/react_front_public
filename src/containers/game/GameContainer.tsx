@@ -10,39 +10,57 @@ import Corgi6 from "../../assets/images/Corgi8.png";
 import Corgi7 from "../../assets/images/Corgi9.png";
 import Corgi8 from "../../assets/images/Corgi10.png";
 
-class Game {
-    static moveList = ["translateX(600px)", "translateX(600px) translateY(600px)", "translateY(600px)", ""]
+class GameManager {
+    static moveList = ["translateX(50vw)", "translateX(50vw) translateY(50vh)", "translateX(10vw)translateY(50vh)", "translateX(10vw)"];
     static corgiList = [Corgi0, Corgi1, Corgi2, Corgi3, Corgi4, Corgi5, Corgi6, Corgi7, Corgi8];
     static cnt = 0;
+
+    static getNextImg(): string {
+        return `url(${this.corgiList[this.cnt % this.corgiList.length]})`;
+    }
+
+    static getNextMove(): string {
+        return this.moveList[this.cnt % this.moveList.length];
+    }
+
+    static increaseStep(): number {
+        this.cnt++;
+        return this.cnt;
+    }
+
+    static debug(msg: string | number): void {
+        console.log(msg);
+    }
+
+    constructor() {
+    }
 }
 
 const GameContainer = () => {
 
     const addAction = () => {
-        const GameContainer : HTMLElement | null = document.querySelector("#GameContainer");
-        const GameIcon : HTMLElement | null = document.querySelector("#GameContainer main img");
+        const GameContainer: HTMLElement | null = document.querySelector("#GameContainer");
+        const GameIcon: HTMLElement | null = document.querySelector("#GameContainer main img");
 
         if (GameContainer === null || GameIcon === null) return;
-            
-        GameIcon.style.transform = Game.moveList[Game.cnt % 4];
-        GameContainer.style.backgroundImage = `url(${Game.corgiList[Game.cnt++ % 9]})`;
+
+        GameIcon.style.transform = GameManager.getNextMove();
+        GameContainer.style.backgroundImage = GameManager.getNextImg();
+        GameManager.increaseStep();
     }
 
-    useLayoutEffect( ()=> {
+    useLayoutEffect(() => {
 
-        console.log("useEffect start!");
-        
-        addAction()
+        addAction();
 
-        const myInterval = setInterval( 
+        const myInterval = setInterval(
             addAction
-        , 1500);
+            , 1500);
 
         return () => {
-            console.log("useEffect end!");
             clearInterval(myInterval);
         };
-        
+
     }, []);
 
     return (

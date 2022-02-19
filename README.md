@@ -26,13 +26,16 @@ yarn start    # port: 4000
 
 ```json
 "scripts": {
-    "start": "webpack serve --env mode=development",
-    "build": "webpack       --env mode=production"
+    "start"     : "webpack serve --env mode=development",
+    "build"     : "webpack       --env mode=production",
+    "predeploy" : "yarn build",
+    "deploy"    : "gh-pages -d build"
   }
 ```
 
-- `yarn start` : Webpack Dev-Server를 통해 Local PC에서 바로 실행 가능
-- `yarn build` : Webpack의 Bundler 기능을 통해 /build/ 디렉토리에 Build
+- `yarn start`  : Webpack Dev-Server를 통해 Local PC에서 바로 실행 가능
+- `yarn build`  : Webpack의 Bundler 기능을 통해 /build/ 디렉토리에 Build
+- `yarn deploy` : `predeploy`가 실행된 이후에 자신의 Remote Repository의 gh-pages 브랜치에 Deploy
 
 <br>
 

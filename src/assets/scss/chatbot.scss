@@ -7,23 +7,23 @@
   flex-direction: column;
 }
 
-#ChatBotHeader {
+#Header {
   background-color: rgb(38, 76, 179);
+  padding: 0 4vw;
+
   align-items: center;
   display: flex;
   flex: 1;
-}
 
-#ChatBotHeaderInfoMsg {
-  font-size: 3.5vh;
-  color: white;
-}
+  svg#Icon {
+    font-size: 4vh;
+    color: white;
+  }
 
-#ChatBotHeaderIcon {
-  padding-left: 4vw;
-  padding-right: 2vw;
-  font-size: 6vh;
-  color: white;
+  span#Title {
+    margin-left: 1vw;
+    color: white;
+  }
 }
 
 #ChatBotMain {
@@ -35,32 +35,37 @@
 .ChatBox {
   align-items: center;
   display: flex;
-  margin: 5vh 0;
+  margin: 3vh 0;
 
-  & .ChatBoxProfile {
+  @media screen and (max-width: 600px) {
+    font-size: 2vw;
+    margin: 2vh 0;
+  }
+
+  .ChatBoxProfile {
     justify-content: center;
     position: relative;
     display: flex;
     flex: 1.8 1.8;
   }
 
-  & .ChatBoxProfileName {
+  .ChatBoxProfileName {
     position: absolute;
     top: 6vh;
   }
-  & svg.ChatBoxProfileImg {
+  svg.ChatBoxProfileImg {
     font-size: 6vh;
   }
 
-  & #ChatBotImg {
+  #ChatBotImg {
     margin-left: 0.5vw;
     height: 10vh;
   }
 
-  & .ChatBoxContentContainer {
+  .ChatBoxContentContainer {
     flex: 8 8;
 
-    & .ChatBoxContent {
+    .ChatBoxContent {
       background-color: rgba(174, 175, 185, 0.7);
       display: inline-flex;
       border-radius: 10px;
@@ -87,10 +92,10 @@ form#ChatBotTextArea {
   display: flex;
   // position: relative;
   background-color: rgb(38, 76, 179);
-  & #TextArea {
+  #TextArea {
     background-color: rgb(38, 76, 179);
     // position: absolute;
-    font-size: 4vmin;
+    font-size: 2vmin;
     padding: 0 4vw;
     color: white;
     border: none;
@@ -101,17 +106,18 @@ form#ChatBotTextArea {
       outline: none;
     }
     &::placeholder {
+      font-size: 2vmin;
       color: white;
     }
   }
-  & #TextButton {
+  #TextButton {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     width: 100%;
     height: 100%;
     background-color: rgb(82, 119, 221);
-    font-size: 5.5vmin;
+    font-size: 3vmin;
     color: white;
     border: none;
     flex: 2;

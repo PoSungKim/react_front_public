@@ -20,8 +20,8 @@ const style = {
 
 const ChatBotContainer = () => {
   const sockJS = useMemo(
-    // () => new SockJS("http://localhost:8080/websocketConnection"),
-    () => new SockJS("https://chatbot-spring.herokuapp.com/websocketConnection"),
+    () => new SockJS("http://localhost:8080/websocketConnection"),
+    // () => new SockJS("https://chatbot-spring.herokuapp.com/websocketConnection"),
     //() => new SockJS("http:/ec2-54-180-100-104.ap-northeast-2.compute.amazonaws.com:8080/websocketConnection"),
     []
   );
@@ -49,10 +49,7 @@ const ChatBotContainer = () => {
     };
   }, []);
 
-  const [msgInput, setMsgInput]: [
-    string,
-    React.Dispatch<React.SetStateAction<string>>
-  ] = useState("");
+  const [msgInput, setMsgInput]: [string, React.Dispatch<React.SetStateAction<string>>] = useState("");
   const dispatch = useDispatch();
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -75,10 +72,7 @@ const ChatBotContainer = () => {
   };
 
   const onSubscriptionHandler = (event: { body: string }) => {
-    const msg: { content: string; userName: string; "meta-info": string } =
-      JSON.parse(event.body);
-    console.log(event.body);
-    console.log(JSON.parse(event.body));
+    const msg: { content: string; userName: string; "meta-info": string } = JSON.parse(event.body);
 
     dispatch({
       type: msg["meta-info"] === "ChatBot" ? JOIN : SENDMSG,
