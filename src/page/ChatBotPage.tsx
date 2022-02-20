@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ChatBotContainer from "../containers/chatbot/ChatBotContainer";
+import UserContainer from "../containers/chatbot/UserContainer";
 import { getUsers } from "../modules/actions/UserAction";
 import { RootReducerType } from "../modules/reducers/RootReducer";
 import { userState } from "../modules/reducers/UserReducer";
@@ -13,16 +14,12 @@ const ChatBotPage = () => {
   useEffect (()=> {
     dispatch(getUsers());
     console.log(userState);
-  }, []);
+  }, [userState.myUserName]);
 
   return (
     <>
-      <ul>
-        {userState.userList.map( (e, idx) =>(
-          <li key={idx} >{e.name}</li>
-        ))}
-      </ul>
-      <ChatBotContainer />
+      {/* <UserContainer userState = {userState} /> */}
+      <ChatBotContainer userState = {userState}/>
     </>
   );
 };

@@ -18,7 +18,7 @@ const style = {
   backgroundRepeat: "no-repeat",
 };
 
-const ChatBotContainer = () => {
+const ChatBotContainer = (props : any) => {
   const sockJS = useMemo(
     // () => new SockJS("http://localhost:8080/websocketConnection"),
     () => new SockJS("https://chatbot-spring.herokuapp.com/websocketConnection"),
@@ -84,17 +84,15 @@ const ChatBotContainer = () => {
     (state: RootReducerType) => state.ChatBotReducer
   );
 
-  let keyNum = 1;
   return (
     <div id="ChatBotContainer">
-      <ChatBotHeader />
+      <ChatBotHeader userList = {props.userState.userList} />
       <main id="ChatBotMain" style={style}>
-        {curMsgState.messageList.map((e) => {
-          keyNum++;
+        {curMsgState.messageList.map((e, idx) => {
           if (e.userName === curMsgState.myUserName) {
-            return <ChatBox key={keyNum} {...{ ...e, type: "L" }} />;
+            return <ChatBox key={idx} {...{ ...e, type: "L" }} />;
           } else {
-            return <ChatBox key={keyNum} {...{ ...e, type: "R" }} />;
+            return <ChatBox key={idx} {...{ ...e, type: "R" }} />;
           }
         })}
       </main>

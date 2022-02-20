@@ -1,3 +1,4 @@
+import { JOIN } from "../actions/ChatBotAction";
 import { GETUSERS, GETUSERS_FAILURE, GETUSERS_SUCCESS } from "../actions/UserAction";
 
 export type userListType = {
@@ -6,7 +7,8 @@ export type userListType = {
 }
 
 export type userPayload = {
-    data : Array<userListType>
+    data : Array<userListType>,
+    userName : String,
 }
 
 export type userState = {
@@ -45,6 +47,12 @@ export const UserReducer = (
             return {
                 ...state,
                 loading: false,
+            }
+        }
+        case JOIN : {
+            return {
+                ...state,
+                myUserName : action.payload.userName
             }
         }
         default :
