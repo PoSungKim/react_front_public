@@ -29,7 +29,7 @@ const ChatBotContainer = (props : any) => {
 
   useEffect(() => {
     const TextArea = document.querySelector<HTMLInputElement>("#TextArea");
-    TextArea?.focus({preventScroll: true});
+    TextArea?.focus();
 
     stompClient.connect({}, () => {
       stompClient.subscribe("/chatroom/public", onSubscriptionHandler);
