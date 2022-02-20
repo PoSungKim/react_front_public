@@ -1,9 +1,9 @@
-export const INCREASE = "INCREASE" as const;
-export const DECREASE = "DECREASE" as const;
-export const INCREASE_ASYNC = "INCREASE_ASYNC" as const;
-export const DECREASE_ASYNC = "DECREASE_ASYNC" as const;
-export const PRINT_STATE = "PRINT_STATE" as const;
-export const RESET = "RESET" as const;
+export const INCREASE = "counter/INCREASE" as const;
+export const DECREASE = "counter/DECREASE" as const;
+export const INCREASE_ASYNC = "counter/INCREASE_ASYNC" as const;
+export const DECREASE_ASYNC = "counter/DECREASE_ASYNC" as const;
+export const PRINT_STATE = "counter/PRINT_STATE" as const;
+export const RESET = "counter/RESET" as const;
 
 export const increase = () => ({
   type: INCREASE,

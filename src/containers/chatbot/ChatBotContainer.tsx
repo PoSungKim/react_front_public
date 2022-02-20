@@ -20,8 +20,8 @@ const style = {
 
 const ChatBotContainer = () => {
   const sockJS = useMemo(
-    () => new SockJS("http://localhost:8080/websocketConnection"),
-    // () => new SockJS("https://chatbot-spring.herokuapp.com/websocketConnection"),
+    // () => new SockJS("http://localhost:8080/websocketConnection"),
+    () => new SockJS("https://chatbot-spring.herokuapp.com/websocketConnection"),
     //() => new SockJS("http:/ec2-54-180-100-104.ap-northeast-2.compute.amazonaws.com:8080/websocketConnection"),
     []
   );
