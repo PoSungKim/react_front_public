@@ -1,4 +1,4 @@
-# Github Page
+# Github Page designed for PC only
 > https://posungkim.github.io
 
 > SPA의 각 컴포넌트별 기능 구현
@@ -40,7 +40,6 @@ yarn start    # port: 4000
 <br>
 
 ## Application 구성 SW
-
 #### 각 SW 별 기능
 
 <br>
