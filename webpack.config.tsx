@@ -16,7 +16,7 @@ module.exports = (env: envProps) => {
     entry: "./src/index.tsx",
     output: {
       path: path.resolve(__dirname, "build"), // where to bundle bundle.js
-      publicPath: "/",
+      publicPath: env.mode === "development" ? "/" : "/posungkim.github.io/",
       filename: "bundle.js",
     },
     resolve: {
@@ -106,7 +106,8 @@ module.exports = (env: envProps) => {
     },
     devServer: {
       devMiddleware: {
-        publicPath: "/", // where to set the root directory, 하지만 실제로 해당 폴더에 output files를 만드는 것은 아니고, it keeps bundle files in memory and serves them as if they were real files mounted at the server's root path한다.
+        // where to set the root directory, 하지만 실제로 해당 폴더에 output files를 만드는 것은 아니고, it keeps bundle files in memory and serves them as if they were real files mounted at the server's root path한다.
+        publicPath: env.mode === "development" ? "/" : "/posungkim.github.io/", 
       },
       static: path.resolve(__dirname, "build"), // webpack에서 제공하는 static files가 아닌 static files를 찾는 경로
       hot: true, // Hot Module Replacement (HMR)로 개발 중 변경된 부분이 자동으로 업데이트되는 기능
