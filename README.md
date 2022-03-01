@@ -16,8 +16,10 @@
 ### [Terminal]
 
 ```bash
-yarn install
-yarn start    # port: 4000
+yarn install # node_modules installation
+yarn start   # local execution
+yarn build   # /build
+yarn deploy  # github page deployment
 ```
 
 <br>
