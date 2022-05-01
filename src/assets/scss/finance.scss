@@ -1,0 +1,55 @@
+#FinanceContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    header {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        width: 100%;
+        height: 100%;
+        color: white;
+        background-color: #264cb3;
+        text-align: center;
+    }
+
+    main {
+        flex: 9;
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+
+        .InterestContainer {
+            flex: 5;
+
+            display: flex;
+            flex-direction: column;
+            
+            &:nth-child(1) {
+                border-right: 1px dotted black;
+            }
+
+            div {
+                padding: 3%;
+            }
+            
+            div:nth-child(1) {
+                flex: 1;
+                background-color: white;
+            }
+            div:nth-child(2) {
+                flex: 9;
+                background-color: white;
+            }
+        }
+
+    }
+}

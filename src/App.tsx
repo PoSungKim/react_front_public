@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import ChatBotPage from "./page/ChatBotPage";
 import HomePage from "./page/HomePage";
 import GraphPage from "./page/GraphPage";
+import FinancePage from "./page/FinancePage";
 import GamePage from "./page/GamePage";
 import LightBlub from "./assets/images/LightBulb.png";
 import "./api/hello";
@@ -27,7 +28,8 @@ const App: React.FC = () : ReactElement => {
               <li><Link to="/"> Home </Link></li>
               <li><Link to="/posungkim.github.io/graph"> Graph </Link></li>
               <li><Link to="/posungkim.github.io/chatbot"> Chatbot </Link></li>
-              <li><Link to="/posungkim.github.io/game"> Welsh Corgi </Link></li>
+              <li><Link to="/posungkim.github.io/finance"> Finance </Link></li>
+              {/* <li><Link to="/posungkim.github.io/game"> Welsh Corgi </Link></li> */}
             </ul>
           </div>
         </section>
@@ -36,7 +38,8 @@ const App: React.FC = () : ReactElement => {
               <Route path="/"           element={<HomePage/>}     />
               <Route path="/posungkim.github.io/graph"     element={<GraphPage />}    />
               <Route path="/posungkim.github.io/chatbot"   element={<ChatBotPage/>}  />
-              <Route path="/posungkim.github.io/game"      element={<GamePage />}    />
+              <Route path="/posungkim.github.io/finance"   element={ <FinancePage  />} />
+              {/* <Route path="/posungkim.github.io/game"      element={<GamePage />}    /> */}
               {/* <Route path="*"                              element={<HomePage />}    /> */}
             </Routes>
         </section>
