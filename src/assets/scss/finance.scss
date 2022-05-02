@@ -39,6 +39,16 @@
 
             div {
                 padding: 3%;
+
+                form {
+                    input {
+                        width: 100%;
+                    }
+                    button {
+                        width: 100%;
+                    }
+                }
+
             }
             
             div:nth-child(1) {
@@ -49,6 +59,7 @@
                 flex: 9;
                 background-color: white;
             }
+
         }
 
     }
