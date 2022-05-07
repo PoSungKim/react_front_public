@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import ChatBotPage from "./page/ChatBotPage";
 import HomePage from "./page/HomePage";
@@ -9,7 +9,7 @@ import LightBlub from "./assets/images/LightBulb.png";
 import "./api/hello";
 
 
-const App: React.FC = () : ReactElement => {
+const App: React.FC = () : React.ReactElement => {
   return (
     <>
       <section id="rootContainer">
