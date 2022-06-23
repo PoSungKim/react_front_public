@@ -2,3 +2,4 @@
 /public/*
 /build/*
 *.log
+**/.DS_Store
