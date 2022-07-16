@@ -1,5 +1,5 @@
 {
-  "homepage": "https://posungkim.github.io",
+  "homepage": "https://benebean-lightbulb.com/",
   "name": "posung.github.io",
   "version": "1.0.0",
   "main": "index.tsx",
@@ -59,7 +59,7 @@
   },
   "scripts": {
     "start": "webpack serve --env mode=development",
-    "build": "webpack       --env mode=production",
+    "build": "webpack       --env mode=production && scp -r build/* benebean@43.200.125.247:/home/benebean/front",
     "predeploy" : "yarn run build",
     "deploy" : "gh-pages -d build"
   }
