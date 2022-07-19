@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap");
 
-$body-color: rgb(14, 33, 102, 1);
+$body-color: #fff;;
 
 body {
   font-family: "Noto Sans KR", sans-serif;
@@ -99,6 +99,32 @@ div#root {
       flex: 8;
       margin: 0;
       width: 100%;
+
+      #container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        header {
+            flex: 1;
+            padding: 5% 3%;
+            
+            span{
+                font-size: 3.5vmax;
+                font-weight: bold;
+            }
+        } 
+
+        main {
+            flex: 9;
+            padding: 5% 3%;
+
+            span {
+                font-size: 1.5vmax;
+            }
+        }
+      }
     }
 
   }

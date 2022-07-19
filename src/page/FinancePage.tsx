@@ -3,7 +3,6 @@ import FinanceContainer from "../containers/finance/FinanceContainer";
 import "../assets/scss/finance.scss";
 
 const FinancePage = () => {
-
     return (
         <FinanceContainer />
     )

@@ -4,9 +4,7 @@ import "../assets/scss/game.scss";
 
 const GamePage = () => {
     return (
-        <>
-            <GameContainer />
-        </>
+        <GameContainer />
     )
 }
 

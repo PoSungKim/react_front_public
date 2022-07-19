@@ -3,11 +3,8 @@ import GraphContainer from "../containers/graph/GraphContainer";
 import "../assets/scss/graph.scss";
 
 const GraphPage = () => {
-
     return (
-        <>
-            <GraphContainer />
-        </>
+        <GraphContainer />
     )
 }
 

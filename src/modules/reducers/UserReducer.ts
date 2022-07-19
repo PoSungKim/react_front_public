@@ -27,7 +27,6 @@ export const UserReducer = (
     state = initialState,
     action: { type: string; payload: userPayload }
   ) => {
-      console.log(state, action);
 
       switch(action.type) {
         case GETUSERS : {
