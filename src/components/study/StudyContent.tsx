@@ -14,21 +14,19 @@ const StudyContent = (props: { status: number; }) => {
             )
         } else {
             return (
-                <>
-                    <form>
-                        <input type="text" />
-                        <textarea name="" id="" cols={30} rows={10}></textarea>
-                        <button type="submit">Submit</button>
-                    </form>
-                </>
+                <form>
+                    <input type="text" />
+                    <textarea name="" id="" cols={30} rows={10}></textarea>
+                    <button type="submit">Submit</button>
+                </form>
             )
         }}
     }
 
     return (
-        <main>
+        <>
             {mainContentHandler()}
-        </main>
+        </>
     )
 }
 
