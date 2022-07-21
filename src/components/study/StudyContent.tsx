@@ -23,12 +23,10 @@ const StudyContent = (props: { status: number; }) => {
             return (
                     <form id="StudyForm" onSubmit={onSubmitHandler}>
                         <div>
-                            <label htmlFor="title">제목</label>
-                            <input type="text" id = "title" />
+                            <input placeholder="제목" type="text" id = "title" />
                         </div>
                         <div>
-                            <label htmlFor="content">내용</label>
-                            <textarea id="content" ></textarea>
+                            <textarea placeholder="내용" id="content" ></textarea>
                         </div>
                         <div>
                             <button type="submit">Submit 🛎</button>
