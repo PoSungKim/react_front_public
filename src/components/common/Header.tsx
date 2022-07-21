@@ -12,6 +12,7 @@ const Header = (props: HeaderProps) => {
         <header>
             <span>{props.emoji} {props.title}</span>
             <br />
+            <br />
             {props.children}
         </header>
     )

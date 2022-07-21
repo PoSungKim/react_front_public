@@ -3,6 +3,13 @@ import { useState } from "react";
 import ReactMarkDown from "react-markdown";
 
 const StudyContent = (props: { status: number; }) => {
+    const onSubmitHandler: React.FormEventHandler<HTMLFormElement>= (e : React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    }
+
+    const putFormInfo = async () => {
+        // Logic will be added
+    }
 
     const mainContentHandler = () => {
     
@@ -14,10 +21,18 @@ const StudyContent = (props: { status: number; }) => {
             )
         } else {
             return (
-                <form>
-                    <input type="text" />
-                    <textarea name="" id="" cols={30} rows={10}></textarea>
-                    <button type="submit">Submit</button>
+                <form id="StudyForm" onSubmit={onSubmitHandler}>
+                    <div>
+                        <label htmlFor="title">제목</label>
+                        <input type="text" id = "title" />
+                    </div>
+                    <div>
+                        <label htmlFor="content">내용</label>
+                        <textarea id="content" ></textarea>
+                    </div>
+                    <div>
+                        <button type="submit">Submit 🛎</button>
+                    </div>
                 </form>
             )
         }}

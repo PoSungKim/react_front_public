@@ -1,0 +1,38 @@
+form#StudyForm {
+    height: 100%;
+    font-size: 2.5vmax;
+    display: flex;
+    flex-direction: column;
+
+    // Dividing the Form into 3 Parts --> {title, content, button}
+    div:nth-child(1) {
+        flex: 1;
+    }
+
+    div:nth-child(2) {
+        flex: 9;
+    }
+
+    div:nth-child(3) {
+        align-items: flex-start;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 1vmax 0;
+
+        label {
+            width:100%;
+        }
+        input, textarea {
+            border-width: 1px;
+            width: 100%;
+            height: 100%;
+            resize: none;
+        }
+        
+    }
+}
