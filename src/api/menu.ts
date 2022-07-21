@@ -1,5 +1,5 @@
 export const getMenu = async () => {
-    const response = await fetch("http://localhost:8080/api/menu", {
+    const response = await fetch("/api/menu", {
         method: 'get',
         headers: {
           "Content-Type": "application/json",
