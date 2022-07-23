@@ -10,7 +10,7 @@ const Header = (props: HeaderProps) => {
 
     return (
         <header>
-            <span>{props.emoji} {props.title}</span>
+            <span>{props.emoji}{props.title}</span>
             <br />
             <br />
             {props.children}
