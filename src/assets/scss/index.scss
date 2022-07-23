@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
 $body-color: #fff;;
 
 body {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   background: $body-color;
   margin: 0;
 }
@@ -108,7 +108,7 @@ div#root {
 
         header {
             flex: 1;
-            padding: 5% 3%;
+            padding: 3% 3%;
             
             span{
                 font-size: 3.5vmax;
